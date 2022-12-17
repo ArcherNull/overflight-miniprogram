@@ -1,6 +1,6 @@
 import { View } from "@tarojs/components";
 
-import './forgetPwd.scss'
+import './forgetPwd.module.scss'
 
 const Index = () => {
   return (

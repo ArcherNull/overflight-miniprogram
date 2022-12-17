@@ -1,48 +1,33 @@
-import React, { useCallback } from "react";
+import { useState, useCallback } from "react";
 import { View, Text, Button, Image } from "@tarojs/components";
-import { useEnv, useNavigationBar, useModal, useToast } from "taro-hooks";
-import logo from "./hook.png";
 
-import './index.scss'
+import MyTabs from "../../components/myTabs/myTabs";
+import Styles from "./index.module.scss";
 
-const Index = () => {
-  const env = useEnv();
-  const [_, { setTitle }] = useNavigationBar({ title: "Taro Hooks" });
-  const [show] = useModal({
-    title: "Taro Hooks!",
-    showCancel: false,
-    confirmColor: "#8c2de9",
-    confirmText: "支持一下",
-    mask: true,
-  });
-  const [showToast] = useToast({ mask: true });
+const tabItem = <View>123123</View>;
 
-  const handleModal = useCallback(() => {
-    show({ content: "不如给一个1112star⭐️!" }).then(() => {
-      showToast({ title: "点击了支持!" });
-    });
-  }, [show, showToast]);
+const tabList: Array<Types.tabItem> = [
+  { title: "标签页1", children: tabItem },
+  { title: "标签页2", children: tabItem },
+  { title: "标签页3", children: tabItem },
+];
+
+export default () => {
+  const [tabSelected, tsetTabSelected] = useState<number>(0);
+
+  // 点击
+  const tabsClick = (current: number) => {
+    console.log("点击", current);
+    tsetTabSelected(current);
+  };
 
   return (
-    <View className="wrapper">
-      <Image className="logo" src={logo} />
-      <Text className="title">为Taro而设计的Hooks Library</Text>
-      <Text className="desc">
-        目前覆盖70%官方API. 抹平部分API在H5端短板. 提供近40+Hooks!
-        并结合ahook适配Taro!
-      </Text>
-      <View className="list">
-        <Text className="label">运行环境</Text>
-        <Text className="note">{env}</Text>
-      </View>
-      <Button className="button" onClick={() => setTitle("Taro Hooks Nice!")}>
-        设置标题
-      </Button>
-      <Button className="button" onClick={handleModal}>
-        使用Modal
-      </Button>
+    <View className={Styles.index}>
+      <MyTabs
+        current={tabSelected}
+        tabList={tabList}
+        onClick={tabsClick}
+      ></MyTabs>
     </View>
   );
 };
-
-export default Index;

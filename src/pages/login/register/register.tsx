@@ -1,6 +1,6 @@
 import { View } from "@tarojs/components";
 
-import './register.scss'
+import './register.module.scss'
 
 const Index = () => {
   return (

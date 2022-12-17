@@ -1,7 +1,7 @@
 {
   "miniprogramRoot": "./",
-  "projectname": "taroP",
-  "description": "taroP",
+  "projectname": "overflight-miniprogram",
+  "description": "",
   "appid": "touristappid",
   "setting": {
     "urlCheck": true,

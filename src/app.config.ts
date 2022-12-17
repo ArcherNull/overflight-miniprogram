@@ -12,16 +12,16 @@ export default {
     list: [
       {
         pagePath: "pages/index/index",
-        text: "我的",
+        text: "首页",
         iconPath: "./assets/tab_home.png",
         selectedIconPath: "./assets/tab_home_active.png",
       },
       {
         pagePath: "pages/home/home",
-        text: "首页",
+        text: "我的",
         iconPath: "./assets/tab_my.png",
         selectedIconPath: "./assets/tab_my_active.png",
-      },
+      }
     ],
   },
   subPackages: [

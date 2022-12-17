@@ -47,4 +47,10 @@ declare namespace Types {
   export type RequestResult = {
     run(): Promise<void>;
   };
+
+  export type tabItem = {
+    title: string;
+    children: JSX.Element;
+  };
+
 }
